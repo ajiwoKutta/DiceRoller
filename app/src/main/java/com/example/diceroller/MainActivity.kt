@@ -8,18 +8,19 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var diceImage: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        diceImage = findViewById(R.id.dice_image)
         val rollButton: Button = findViewById(R.id.roll_button)
-//        rollButton.text = "Let's Roll"
         rollButton.setOnClickListener{
             rollDice()
         }
     }
 
     private fun rollDice() {
-        val diceImage: ImageView = findViewById(R.id.dice_image)
         val randomInt = Random().nextInt(6) + 1
         val drawableResource = when (randomInt) {
             1 -> R.drawable.dice_1
